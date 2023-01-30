@@ -19,7 +19,8 @@ export const defaultTheme = {
   'base-card': '#F3F2F2',
   'background': '#FAFAFA',
 
-  white: '#FFFFFF'
-
-
+  white: '#FFFFFF',
+  'Baloo2': '"Baloo 2", cursive',
+  'Roboto': '"Roboto", sans-serif;'
 }
+
