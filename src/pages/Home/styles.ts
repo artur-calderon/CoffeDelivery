@@ -75,3 +75,18 @@ export const Details = styled.div`
     }
     
 `
+
+export const CardContainer = styled.main`
+    margin-top: 8rem;
+    margin-bottom: 2.125rem;
+
+ 
+
+`
+export const Title = styled.h1`
+    font-family: ${props => props.theme.Baloo2};
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 3.375rem;
+
+`
