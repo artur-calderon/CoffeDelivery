@@ -1,14 +1,18 @@
-import { Card, CardBody, CardFooter, CardImage, CardsContainer, Quantity } from "./styles";
+import { Card, CardBody, CardFooter, CardImage, CardsContainer, QuantityContainer } from "./styles";
 import { coffeTypes } from '../../coffeTypes'
-import { ShoppingCart } from "phosphor-react";
+import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { useState } from "react";
 
 
 
-function FormatNumber(number:number){
-    return number.toLocaleString('pt-BR',{minimumFractionDigits:2})
+function FormatNumber(number: number) {
+    return number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
 }
 
 export function Cards() {
+    const [quantitySum, setQuantitySum] = useState<number>(1)
+
+
     return (
         <CardsContainer>
             {
@@ -19,15 +23,19 @@ export function Cards() {
                             <CardBody>
                                 {
                                     coffe.type.map(type => {
-                                        return <span>{type}</span>
+                                        return <span key={type}>{type}</span>
                                     })
                                 }
                                 <h1>{coffe.name}</h1>
                                 <p>{coffe.description}</p>
                             </CardBody>
                             <CardFooter>
-                                <span>R$ {FormatNumber(coffe.price)}</span>
-                                <Quantity type='number' min='1' placeholder="1"/>
+                                <p>R$</p>{' '}<span>{FormatNumber(coffe.price)}</span>
+                                <QuantityContainer>
+                                    <Minus size={32} weight="fill" onClick={() => setQuantitySum(prev => prev -= 1)} />
+                                    <input type='number' min='1' placeholder="1" value={quantitySum} />
+                                    <Plus size={32} weight="fill" onClick={() => setQuantitySum(prev => prev += 1)} />
+                                </QuantityContainer>
                                 <ShoppingCart size={32} color='#fff' weight="fill" />
                             </CardFooter>
                         </Card>
