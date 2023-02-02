@@ -11,7 +11,7 @@ export const CardsContainer = styled.div`
 
 `
 
-export const Card = styled.div`
+export const Card1 = styled.div`
     width: 16rem;
     height: 19.375rem;
     padding: 1.25rem;
@@ -69,7 +69,7 @@ export const CardBody = styled.div`
 
 `
 
-export const QuantityContainer = styled.div`
+export const QuantityContainer = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
