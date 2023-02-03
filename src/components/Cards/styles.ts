@@ -79,6 +79,11 @@ export const QuantityContainer = styled.form`
 
     background-color: ${props => props.theme["base-button"]};
     
+    button{
+        border: 0;
+        background-color: inherit;
+        
+    }
     
     input{
         border: 0;
@@ -90,7 +95,7 @@ export const QuantityContainer = styled.form`
         width: 1.5rem;
     }
 
-    >svg{
+   button >svg{
         color: ${props => props.theme["purple-dark"]};
         width: .875rem;
         height: .9rem;
