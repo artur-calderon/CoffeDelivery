@@ -36,6 +36,7 @@ div{
 
 `
 export const CartIcon = styled.span`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,4 +46,21 @@ export const CartIcon = styled.span`
   border-radius: 6px;
 
   cursor: pointer;
+
+  .quantityBall{
+    position: absolute;
+    right: -8.35px;
+    top: -8px;
+
+
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: ${props => props.theme["yellow-dark"]};
+
+    border-radius: 100%;
+
+    font-family: ${props => props.theme.Roboto};
+    color: #fff;
+    font-size:.75rem;
+  }
 `

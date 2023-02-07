@@ -135,7 +135,8 @@ export const CardFooter = styled.div`
         margin-left: .5rem;
         padding: .5rem;
 
-        border-radius: 6px
+        border-radius: 6px;
+        cursor: pointer;
     }
 `
 
