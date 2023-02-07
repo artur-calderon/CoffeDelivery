@@ -133,7 +133,6 @@ export const Pagamento = styled.div`
       width: 11.1669rem;
       gap: .3rem;
       border:0;
-      width: 11.1669rem;
       height: 3.1875rem;
       border-radius: 6px;
       background-color: ${props => props.theme["base-button"]};
@@ -143,8 +142,17 @@ export const Pagamento = styled.div`
       font-size: 0.8rem;
       font-family: ${props => props.theme.Roboto};
       color: ${props => props.theme["base-text"]};
+      
+      transition: 0.5s all ease;
     }
-
+  
+    button:hover{
+      background-color: ${props => props.theme["base-hover"]};
+    }
+    button:focus{
+      background-color: ${props => props.theme["purple-light"]};
+      border: 1px solid ${props => props.theme.purple};
+    }
    
   }
   
@@ -170,7 +178,131 @@ export const CartContainer = styled.div`
 
   border-radius: 6px 44px;
 
+  >button{
+    width: 100%;
+    border: 0;
+    margin-top: 1.5rem;
+
+    background-color: ${props => props.theme.yellow};
+
+    padding: .75rem .5rem;
+    border-radius: 6px;
+    font-family: ${props => props.theme.Roboto};
+    font-style: normal;
+    font-weight: 700;
+    font-size: .875rem;
+    line-height: 160%;
+    color:${props => props.theme.white};
+
+    cursor: pointer;
+  }
+  >button:hover{
+    background-color: ${props => props.theme["yellow-dark"]};
+  }
+
 `
 
 export const CartProducts = styled.div``
-export const Products = styled.div``
+
+
+export const Products = styled.div`
+  width: 23rem;
+
+  display: flex;
+  gap:1.25rem;
+  padding: 2rem 0;
+  border-bottom:1px solid #E6E5E5;
+  
+
+  img{
+    width: 4rem;
+  }
+
+`
+
+
+export const DescriptionProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: ${props => props.theme.Roboto};
+
+
+  .priceDescription {
+    display: flex;
+    flex: 1;
+    color:${props => props.theme["base-subtitle"]};
+    width: 100%;
+    justify-content: space-between;
+  }
+  .priceDescription span:nth-child(2){
+    font-weight: 700;
+    color: ${props => props.theme["base-text"]};
+  }
+
+  button{
+    width: 5rem;
+    height: 2rem;
+    padding: 0 .5rem;
+    cursor: pointer;
+    background-color: ${props => props.theme["base-button"]};
+    border:0;
+    border-radius: 6px;
+    font-family: ${props => props.theme.Roboto};
+    font-size: .75rem;
+    color: ${props => props.theme["base-text"]};
+  }
+
+  button:hover{
+      background-color: ${props => props.theme["base-hover"]};
+    }
+  .buttonsDescription{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  
+  .buttonsDescription button:nth-child(2){
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .65rem;
+  }
+  
+  `
+
+
+export const Payment = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  margin-top: 1.5938rem;
+
+  font-family: ${props => props.theme.Roboto};
+  color: ${props => props.theme["base-text"]};
+  
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .8438rem;
+  }
+  div:nth-child(2){
+    align-items: flex-end;
+  }
+  .paymentDetails{
+    font-size: .875rem;
+  }
+  .paymentDetails span:nth-child(3){
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: ${props=> props.theme["base-subtitle"]};
+  }
+  .paymentPrice span:nth-child(3){
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: ${props=> props.theme["base-subtitle"]};
+  }
+`

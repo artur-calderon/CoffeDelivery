@@ -1,6 +1,6 @@
 
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { Cart, CartContainer, CartProducts, CheckoutContainer, Form, FormCheckOut, Pagamento, Products, Title } from "./styles";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
+import { Cart, CartContainer, CartProducts, CheckoutContainer, DescriptionProduct, Form, FormCheckOut, Pagamento, Payment, Products, Title } from "./styles";
 
 export function Checkout() {
   return (
@@ -57,9 +57,36 @@ export function Checkout() {
         <CartContainer>
           <CartProducts>
             <Products>
-
+              <img src="https://th.bing.com/th/id/R.0761f7ec8d43ca424fa078775b322cc9?rik=vW0JriMSX%2fJESw&riu=http%3a%2f%2fmpmco.com%2fwp-content%2fuploads%2f2018%2f02%2fplaceholder.jpg&ehk=Ma%2beNkBomEexasJFRkD57DmdZ4UvtjUYu%2f5L%2bkSG4as%3d&risl=&pid=ImgRaw&r=0" alt="" />
+              <DescriptionProduct>
+                <div className="priceDescription">
+                  <span>Expresso Tradicional</span>
+                  <span>R$ 9.90</span>
+                </div>
+                <div className="buttonsDescription">
+                  <button>1</button>
+                  <button>
+                    <Trash size={32} weight="thin" color="#8047F8" />
+                    REMOVER
+                  </button>
+                </div>
+              </DescriptionProduct>
             </Products>
           </CartProducts>
+          <Payment>
+            <div className="paymentDetails">
+              <span>Total de itens</span>
+              <span>Entrega</span>
+              <span>Total</span>
+            </div>
+
+            <div className="paymentPrice">
+              <span>R$ 29,70</span>
+              <span>R$ 3,50</span>
+              <span>R$ 33,20</span>
+            </div>
+          </Payment>
+          <button>COMFIRMAR PEDIDO</button>
         </CartContainer>
       </Cart>
     </CheckoutContainer >
