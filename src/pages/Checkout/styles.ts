@@ -171,3 +171,6 @@ export const CartContainer = styled.div`
   border-radius: 6px 44px;
 
 `
+
+export const CartProducts = styled.div``
+export const Products = styled.div``

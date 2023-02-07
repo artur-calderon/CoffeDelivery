@@ -1,6 +1,6 @@
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { Cart, CartContainer, CheckoutContainer, Form, FormCheckOut, Pagamento, Title } from "./styles";
+import { Cart, CartContainer, CartProducts, CheckoutContainer, Form, FormCheckOut, Pagamento, Products, Title } from "./styles";
 
 export function Checkout() {
   return (
@@ -55,7 +55,11 @@ export function Checkout() {
       <Cart>
         <h1>Cafés selecionados</h1>
         <CartContainer>
+          <CartProducts>
+            <Products>
 
+            </Products>
+          </CartProducts>
         </CartContainer>
       </Cart>
     </CheckoutContainer >
