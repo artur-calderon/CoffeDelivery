@@ -19,6 +19,7 @@ interface ProductProps {
     name: string,
     description: string,
     price: number,
+    quantidade:number
 
 }
 
@@ -30,7 +31,6 @@ export function Card({ ...props }) {
 
     function QuantitySum(event: FormEvent) {
         event.preventDefault();
-        console.log(event.currentTarget.id)
 
         if (event.currentTarget.id === '+') {
             setQuantitySum(prev => prev += 1)
@@ -76,7 +76,7 @@ export function Card({ ...props }) {
                         <Plus size={32} weight="fill" />
                     </button>
                 </QuantityContainer>
-                <ShoppingCart size={32} color='#fff' weight="fill" onClick={() => addToCart({ ...props } as ProductProps)} />
+                <ShoppingCart size={32} color='#fff' weight="fill" onClick={() => addToCart({ ...props } as ProductProps, quantitySum as unknown as ProductProps)} />
             </CardFooter>
         </Card1>
     )

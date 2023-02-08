@@ -1,8 +1,16 @@
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { Cart, CartContainer, CartProducts, CheckoutContainer, DescriptionProduct, Form, FormCheckOut, Pagamento, Payment, Products, Title } from "./styles";
 
 export function Checkout() {
+
+  const { productToCart } = useContext(CartContext)
+
+  function FormatNumber(number: number) {
+    return number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
+}
   return (
     <CheckoutContainer>
       <FormCheckOut>
@@ -56,22 +64,30 @@ export function Checkout() {
         <h1>Cafés selecionados</h1>
         <CartContainer>
           <CartProducts>
-            <Products>
-              <img src="https://th.bing.com/th/id/R.0761f7ec8d43ca424fa078775b322cc9?rik=vW0JriMSX%2fJESw&riu=http%3a%2f%2fmpmco.com%2fwp-content%2fuploads%2f2018%2f02%2fplaceholder.jpg&ehk=Ma%2beNkBomEexasJFRkD57DmdZ4UvtjUYu%2f5L%2bkSG4as%3d&risl=&pid=ImgRaw&r=0" alt="" />
-              <DescriptionProduct>
-                <div className="priceDescription">
-                  <span>Expresso Tradicional</span>
-                  <span>R$ 9.90</span>
-                </div>
-                <div className="buttonsDescription">
-                  <button>1</button>
-                  <button>
-                    <Trash size={32} weight="thin" color="#8047F8" />
-                    REMOVER
-                  </button>
-                </div>
-              </DescriptionProduct>
-            </Products>
+            {
+              productToCart.map(product => {
+                console.log(product.quantidade)
+                return (
+                  <Products>
+                    <img src={product.url} alt="" />
+                    <DescriptionProduct>
+                      <div className="priceDescription">
+                        <span>{product.name}</span>
+                        <span>R$ {FormatNumber(product.price)}</span>
+                      </div>
+                      <div className="buttonsDescription">
+                        <button>{product.quantidade}</button>
+                        <button>
+                          <Trash size={32} weight="thin" color="#8047F8" />
+                          REMOVER
+                        </button>
+                      </div>
+                    </DescriptionProduct>
+                  </Products>
+                )
+              })
+            }
+
           </CartProducts>
           <Payment>
             <div className="paymentDetails">

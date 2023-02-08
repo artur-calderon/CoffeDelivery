@@ -24,7 +24,7 @@ export function Header() {
 
           <CartIcon>
             {
-              productToCart ? <div className="quantityBall">{productToCart.length}</div> : null
+              productToCart.length >= 1 ? <div className="quantityBall">{productToCart.length}</div> : null
             }
             <ShoppingCart size={22} color='#C47F17' weight="fill" />
           </CartIcon>
