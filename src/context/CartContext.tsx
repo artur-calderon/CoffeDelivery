@@ -6,6 +6,7 @@ export const CartContext = createContext({} as CartContextProps)
 interface CartContextProps {
   addToCart: (product: ProductProps, quantity: ProductProps) => void,
   productToCart: ProductProps[],
+  removeFromCart: (id: number) => void
 }
 
 interface ProductProps {
@@ -14,7 +15,7 @@ interface ProductProps {
   url: string,
   name: string,
   description: string,
-  price: number,
+  price: number, 
   quantidade:number
 
 }
@@ -32,15 +33,22 @@ export function CartProvider({ children }: CartProviderProps) {
     if(duplicatedProduct){
       return
     }else{
-      const productOnCart = Array.from(productToCart)
-      productOnCart.quantidade = quantity
+      product.quantidade = quantity
       setProductToCart(state => [...state, product])
     }
   }
 
+  function removeFromCart(id: number){
+      const removeItemById = productToCart.filter(prod => {
+        return prod.id != id
+      })
+      setProductToCart(removeItemById)
+      
+  }
+
 
   return (
-    <CartContext.Provider value={{ addToCart, productToCart }}>
+    <CartContext.Provider value={{ addToCart, productToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )

@@ -43,10 +43,6 @@ export function Card({ ...props }) {
         }
     }
 
-    function handleAddToCart(data: any) {
-        console.log(data)
-
-    }
 
 
 

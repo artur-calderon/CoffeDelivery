@@ -172,7 +172,7 @@ export const Cart = styled.div`
 
 export const CartContainer = styled.div`
   width: 28rem;
-  height: 31.125rem;
+  height: auto;
   background-color: ${props => props.theme["base-card"]};
   padding: 3rem;
 
