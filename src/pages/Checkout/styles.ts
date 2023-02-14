@@ -178,7 +178,7 @@ export const CartContainer = styled.div`
 
   border-radius: 6px 44px;
 
-  >button{
+  a>button{
     width: 100%;
     border: 0;
     margin-top: 1.5rem;

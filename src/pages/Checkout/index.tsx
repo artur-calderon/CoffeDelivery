@@ -1,15 +1,30 @@
 
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from "phosphor-react";
 import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { Cart, CartContainer, CartProducts, CheckoutContainer, DescriptionProduct, Form, FormCheckOut, Pagamento, Payment, Products, Title } from "./styles";
 
+
+interface UserAddressForm{
+  rua: string,
+  numero:number,
+  complemento: string,
+  bairro:string,
+  cidade:string,
+  uf:string
+}
+
+
 export function Checkout() {
 
-  const { productToCart, removeFromCart } = useContext(CartContext)
+  const { productToCart, removeFromCart, userAddressOrder, userInfo } = useContext(CartContext)
   const [total, setTotal] = useState(0)
-  // const [totalUnitario, setTotalUnitario] = useState(0)
   const [subTotal, setSubTotal] = useState(0)
+
+  const { register, handleSubmit } = useForm<UserAddressForm>()
+
 
   function FormatNumber(number: number) {
     return number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
@@ -38,13 +53,16 @@ useEffect(()=>{
       }
     })
   }
-
+  function sendClientData(data: UserAddressForm){
+    userAddressOrder(data)
+  
+  }
 
   return (
     <CheckoutContainer>
       <FormCheckOut>
         <h1>Complete seu pedido</h1>
-        <Form>
+        <Form onSubmit={handleSubmit(sendClientData)} id="formUserInfo">
           <Title>
             <MapPinLine size={32} weight="thin" />
             <div>
@@ -54,14 +72,14 @@ useEffect(()=>{
           </Title>
           <div className="first">
             <input type="text" name="CEP" placeholder="CEP" />
-            <input type="text" name="RUA" placeholder="Rua" />
+            <input type="text" {...register("rua")} placeholder="Rua" />
           </div>
           <div className="secondGroupInput">
-            <input type="text" name="numero" placeholder="Número" />
-            <input type="text" name="complemento" placeholder="Complemento" />
-            <input type="text" name="bairro" placeholder="Bairro" />
-            <input type="text" name="Cidade" placeholder="Cidade" />
-            <input type="text" name="UF" placeholder="UF" />
+            <input type="text" {...register("numero")} placeholder="Número" />
+            <input type="text" {...register("complemento")} placeholder="Complemento" />
+            <input type="text" {...register("bairro")} placeholder="Bairro" />
+            <input type="text" {...register("cidade")} placeholder="Cidade" />
+            <input type="text" {...register("uf")} placeholder="UF" />
           </div>
         </Form>
 
@@ -130,7 +148,9 @@ useEffect(()=>{
               <span>R$ {FormatNumber(total)}</span>
             </div>
           </Payment>
-          <button>COMFIRMAR PEDIDO</button>
+          
+            <button form="formUserInfo">COMFIRMAR PEDIDO</button>
+         
         </CartContainer>
       </Cart>
     </CheckoutContainer >
