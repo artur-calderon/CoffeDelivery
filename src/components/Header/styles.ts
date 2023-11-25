@@ -8,10 +8,16 @@ export const HeaderContainer = styled.div`
   font-weight: 400;
   font-size: .875rem;
   img{
-    width: 5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: auto;
   }
  
+  @media screen and (max-width: 568px){
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
 `
 
 

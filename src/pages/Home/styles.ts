@@ -12,7 +12,19 @@ export const HomeContainer = styled.main`
         background-image: url(${CoffeCupBackground});
         background-repeat: no-repeat;
         background-position: center;
+        mix-blend-mode: multiply;
     }
+
+    @media screen and (max-width: 568px){
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content:center;
+    padding: 0 1rem;
+    img{
+        width: 20rem;
+    }
+  }
 `
 export const Description = styled.div`
 
@@ -73,6 +85,12 @@ export const Details = styled.div`
         padding: .5rem;
         border-radius:100%;
     }
+
+    @media screen and (max-width: 568px){
+    svg{
+        width: 3rem;
+    }
+  }
     
 `
 

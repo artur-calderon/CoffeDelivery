@@ -11,8 +11,8 @@ export function Cards() {
         <CardsContainer>
             {
                 coffeTypes.map(coffe => {
-                    return <Card {...coffe} key={coffe.id}/>
-                    
+                    return <Card {...coffe} key={coffe.id} />
+
                 })
             }
         </CardsContainer>

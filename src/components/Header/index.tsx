@@ -1,5 +1,5 @@
 import { CartIcon, HeaderContainer, IconsWrapper } from "./styles";
-import Logo from '../../assets/Logo.png';
+import Logo from '../../assets/disfrutaLogo.png';
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";

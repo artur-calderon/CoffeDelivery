@@ -8,7 +8,9 @@ export const CardsContainer = styled.div`
     grid-template-rows: 1fr;
     grid-column-gap: 2rem;
     grid-row-gap: 2.5rem;
-
+    @media screen and (max-width: 568px){
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 export const Card1 = styled.div`
