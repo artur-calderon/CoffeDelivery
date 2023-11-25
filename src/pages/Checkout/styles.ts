@@ -6,6 +6,14 @@ export const CheckoutContainer = styled.div`
   align-items: flex-start;
   gap:2rem;
 
+  @media screen and (max-width: 568px){
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding: 0 1rem;
+   
+  }
+
 `
 export const FormCheckOut = styled.div`
   display: flex;
@@ -17,6 +25,14 @@ export const FormCheckOut = styled.div`
     font-size: 1.125rem;
     margin-bottom: .9375rem;
     margin-top: 2.5rem;
+  }
+  @media screen and (max-width: 568px){
+    text-align:center;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+   
   }
 
   `
@@ -83,7 +99,33 @@ export const Form = styled.form`
     }
 
    }
+   @media screen and (max-width: 568px){
+    align-items: center;
+    text-align:center;
+    width: 100%;
+    padding:1rem;
 
+    .first{
+      width: 100%;
+    }
+    .first input:nth-child(1){
+      width: 100%;
+    }
+    .secondGroupInput{
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      width: 100%;
+      input{
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+      input:nth-child(2),input:nth-child(5){
+        margin-left: 0;
+      }
+    }
+   
+  }
 
 `
 export const Title = styled.div`
@@ -108,6 +150,12 @@ export const Title = styled.div`
     color:${props => props.theme["yellow-dark"]};
     width: 1.5rem;
     margin-top: -.375rem;
+  }
+
+  @media screen and (max-width: 568px){
+    svg{
+      width: 2rem;
+    }
   }
 
 `
@@ -155,7 +203,19 @@ export const Pagamento = styled.div`
     }
    
   }
-  
+  @media screen and (max-width: 568px){
+    .Buttons{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    svg{
+      width: 3rem;
+    }
+    .Buttons button{
+      width: 100%;
+    }
+  }
 `
 
 
@@ -167,6 +227,9 @@ export const Cart = styled.div`
     font-size: 1.125rem;
     margin-bottom: .9375rem;
     margin-top: 2.5rem;
+  }
+  @media screen and (max-width: 568px){
+    text-align: center;
   }
 `
 
@@ -201,6 +264,11 @@ export const CartContainer = styled.div`
   }
   >button:hover{
     background-color: ${props => props.theme["yellow-dark"]};
+  }
+
+  @media screen and (max-width: 568px){
+    text-align: center;
+   justify-content: center;
   }
 
 `
