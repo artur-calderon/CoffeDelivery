@@ -20,7 +20,7 @@ export function Header() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) { // callback de sucesso
         // ajusta a posição do marker para a localização do usuário
-        var url = `http://nominatim.openstreetmap.org/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`;
+        var url = `https://nominatim.openstreetmap.org/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`;
         fetch(url).then(res => {
           const data = res.json()
           data.then(geo => {
