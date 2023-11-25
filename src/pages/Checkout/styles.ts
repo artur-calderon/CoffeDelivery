@@ -176,6 +176,9 @@ export const CartContainer = styled.div`
   background-color: ${props => props.theme["base-card"]};
   padding: 3rem;
 
+  display: flex;
+  flex-direction: column;
+
   border-radius: 6px 44px;
 
   a>button{
@@ -298,11 +301,31 @@ export const Payment = styled.div`
   .paymentDetails span:nth-child(3){
     font-size: 1.25rem;
     font-weight: bold;
-    color: ${props=> props.theme["base-subtitle"]};
+    color: ${props => props.theme["base-subtitle"]};
   }
   .paymentPrice span:nth-child(3){
     font-size: 1.25rem;
     font-weight: bold;
-    color: ${props=> props.theme["base-subtitle"]};
+    color: ${props => props.theme["base-subtitle"]};
   }
+
 `
+
+export const PaymentButton = styled.button`
+  background-color: ${props => props.theme.yellow};
+  border: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  margin-top: 1rem;
+
+  font-size: 1rem;
+  font-family: ${props => props.theme.Roboto};
+  color: ${props => props.theme["base-input"]};
+  cursor: pointer;
+  &:hover{
+    background-color: ${props => props.theme["yellow-light"]};
+  }
+
+`
+

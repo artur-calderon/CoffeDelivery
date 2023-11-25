@@ -19,12 +19,12 @@ interface ProductProps {
     name: string,
     description: string,
     price: number,
-    quantidade:number
+    quantidade: number
 
 }
 
 export function Card({ ...props }) {
-    const [quantitySum, setQuantitySum] = useState(1)
+    const [quantitySum, setQuantitySum] = useState<number>(1)
     const [preco, setPreco] = useState(props.price)
 
     const { addToCart } = useContext(CartContext)
@@ -72,7 +72,7 @@ export function Card({ ...props }) {
                         <Plus size={32} weight="fill" />
                     </button>
                 </QuantityContainer>
-                <ShoppingCart size={32} color='#fff' weight="fill" onClick={() => addToCart({ ...props } as ProductProps, quantitySum as unknown as ProductProps)} />
+                <ShoppingCart size={32} color='#fff' weight="fill" onClick={() => addToCart({ ...props } as ProductProps, quantitySum)} />
             </CardFooter>
         </Card1>
     )

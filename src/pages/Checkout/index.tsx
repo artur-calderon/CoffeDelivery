@@ -4,16 +4,16 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { Cart, CartContainer, CartProducts, CheckoutContainer, DescriptionProduct, Form, FormCheckOut, Pagamento, Payment, Products, Title } from "./styles";
+import { Cart, CartContainer, CartProducts, CheckoutContainer, DescriptionProduct, Form, FormCheckOut, Pagamento, Payment, Products, Title, PaymentButton } from "./styles";
 
 
-interface UserAddressForm{
+interface UserAddressForm {
   rua: string,
-  numero:number,
+  numero: number,
   complemento: string,
-  bairro:string,
-  cidade:string,
-  uf:string
+  bairro: string,
+  cidade: string,
+  uf: string
 }
 
 
@@ -28,34 +28,34 @@ export function Checkout() {
 
   function FormatNumber(number: number) {
     return number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })
-}
-
-useEffect(()=>{
-  if(productToCart.length >=1){
-    let subTot = 0;
-    productToCart.map(prod => {
-      let totalUnit = prod.price * prod.quantidade
-      subTot += totalUnit
-      setSubTotal(subTot)
-      let totall = subTot + 3.50
-      setTotal(totall)
-    })
   }
 
-},[])
+  useEffect(() => {
+    if (productToCart.length >= 1) {
+      let subTot = 0;
+      productToCart.map(prod => {
+        let totalUnit = prod.price * prod.quantidade
+        subTot += totalUnit
+        setSubTotal(subTot)
+        let totall = subTot + 3.50
+        setTotal(totall)
+      })
+    }
 
-  function handleRemoveFromCart(id:number){
+  }, [])
+
+  function handleRemoveFromCart(id: number) {
     productToCart.map(prod => {
-      if(prod.id === id){
+      if (prod.id === id) {
         setSubTotal(subTotal - prod.price * prod.quantidade)
-        setTotal(state => state - prod.price * prod.quantidade)
         removeFromCart(id)
+        setTotal(state => state - (prod.price * prod.quantidade))
       }
     })
   }
-  function sendClientData(data: UserAddressForm){
+  function sendClientData(data: UserAddressForm) {
     userAddressOrder(data)
-  
+
   }
 
   return (
@@ -123,7 +123,7 @@ useEffect(()=>{
                       </div>
                       <div className="buttonsDescription">
                         <button>{product.quantidade}</button>
-                        <button onClick={()=> handleRemoveFromCart(product.id)}>
+                        <button onClick={() => handleRemoveFromCart(product.id)}>
                           <Trash size={32} weight="thin" color="#8047F8" />
                           REMOVER
                         </button>
@@ -148,9 +148,9 @@ useEffect(()=>{
               <span>R$ {FormatNumber(total)}</span>
             </div>
           </Payment>
-          
-            <button form="formUserInfo">COMFIRMAR PEDIDO</button>
-         
+
+          <PaymentButton form="formUserInfo">COMFIRMAR PEDIDO</PaymentButton>
+
         </CartContainer>
       </Cart>
     </CheckoutContainer >

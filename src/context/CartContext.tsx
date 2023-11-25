@@ -7,8 +7,8 @@ interface CartContextProps {
   addToCart: (product: ProductProps, quantity: number) => void,
   productToCart: ProductProps[],
   removeFromCart: (id: number) => void,
-  userAddressOrder: (data:UserAddressForm) => void,
-  userInfo:UserAddressForm | undefined
+  userAddressOrder: (data: UserAddressForm) => void,
+  userInfo: UserAddressForm | undefined
 }
 
 interface ProductProps {
@@ -17,8 +17,8 @@ interface ProductProps {
   url: string,
   name: string,
   description: string,
-  price: number, 
-  quantidade:number
+  price: number,
+  quantidade: number
 
 }
 
@@ -26,13 +26,13 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-interface UserAddressForm{
+interface UserAddressForm {
   rua: string,
-  numero:number,
+  numero: number,
   complemento: string,
-  bairro:string,
-  cidade:string,
-  uf:string
+  bairro: string,
+  cidade: string,
+  uf: string
 }
 
 export function CartProvider({ children }: CartProviderProps) {
@@ -42,30 +42,30 @@ export function CartProvider({ children }: CartProviderProps) {
 
 
   function addToCart(product: ProductProps, quantity: number) {
-    const duplicatedProduct = productToCart.find(p => {return  p.id === product.id})
-    if(duplicatedProduct){
+    const duplicatedProduct = productToCart.find(p => { return p.id === product.id })
+    if (duplicatedProduct) {
       return
-    }else{
+    } else {
       product.quantidade = quantity
       setProductToCart(state => [...state, product])
     }
   }
 
-  function removeFromCart(id: number){
-      const removeItemById = productToCart.filter(prod => {
-        return prod.id != id
-      })
-      setProductToCart(removeItemById)
-      
+  function removeFromCart(id: number) {
+    const removeItemById = productToCart.filter(prod => {
+      return prod.id != id
+    })
+    setProductToCart(removeItemById)
+
   }
 
-  function userAddressOrder(data: UserAddressForm){
+  function userAddressOrder(data: UserAddressForm) {
     setUserInfo(data)
   }
 
 
   return (
-    <CartContext.Provider value={{ addToCart, productToCart, removeFromCart, userAddressOrder , userInfo }}>
+    <CartContext.Provider value={{ addToCart, productToCart, removeFromCart, userAddressOrder, userInfo }}>
       {children}
     </CartContext.Provider>
   )
